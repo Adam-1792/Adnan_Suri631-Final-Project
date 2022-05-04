@@ -1,0 +1,159 @@
+---
+title: "SEIS 631 - Final Project Draft"
+author: "Adnan Suri"
+date: "4/24/2022"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+setwd("/Users/Home/Desktop/St Thomas/SEIS 631")
+```
+
+![Titanic Ship](/Users/Home/Desktop/St Thomas/SEIS 631/RMS_Titanic_3.jpg){width=90%}
+
+```{r}
+library(readr);
+Titanic <- read_csv("titanic.csv")
+```
+
+## References:
+
+### 1. [Titanic Picture](https://en.wikipedia.org/wiki/Titanic)
+
+### 2. [SEIS-631 HW-3](https://stthomas.edu)
+
+### 3. Dataset [https://github.com/elisabetta42/dataset_analysis/blob/master/titanic3.csv]
+
+### 4. [https://ggplot2.tidyverse.org]
+
+(https://github.com/Adam-1792/631-rtopics)
+
+https://github.com/Adam-1792/Adnan_Suri---631-Final-Project/blob/main/.gitignore
+
+
+# Introduction
+
+## WHAT: Since I watched the Titanic movie in 1997, I have always wanted to learn more statistical status of the Titanic ship. I hypothesize that more males died vs. females during the event. Also, I would like to know the survival age range and perform further statistical analysis to compare the data, like the overall survival rate.
+
+## WHY: It is unfortunate that the Titanic ship sank and people died. People created a dataset to understand statistics and mainly apply those statistics for people's safety and a better world, which is very similar to the Covid dataset. Because of my interest in Titanic, I will use R language to learn more about titanic data.
+
+## HOW: My goal would be to visualize the data by using tidyverse for titanic data manipulation and visualization. I will be doing the data analysis by using the following:
+
+## MINIMAL: My goal would be to get more familiar with R, import titanic dataset into R, runs statistics using R functionality, especially ggplot, tidyvers, visuals where I can run the data with graphs, charts formats, and write the report in R Markdown and export in PDF.  
+
+## AMBITIOUS: My next stretch goal would be to add more visuals and importing the dataset into Power BI ( https://docs.microsoft.com/en-us/power-bi/connect-data/desktop-r-scripts). Installing R script into BI desktop and create “Titanic Dashboard” to run different visuals with slicer option.
+
+# Topics From Class
+
+### Topic 1: Lecture 8: Tidy Data a.k.a Tidyverse approach to R.
+    ## 1) Use R functionality to analyze the data using ggplot 2 (data visualization)
+    ## 2) R functionality dplyr (data manipulation)
+    ## 3) R funtionality tidyr (data cleaning)
+
+### Topic 2: Chapter 2, Summarizing the data. 
+    ## 1) Examine the numerical data using scatterplot, histogram, standard deviation, boxplot, quaterlies and median. 
+    ## 2) Analyze data by considering categorical data;
+          tables and barplots - class Hw-3 
+        
+### Topic 3: Distribution of random variables try with R
+    ## 1) Normal distribution - plot(x, qnorm(x))
+    ## 2) Geometric distribution - plot(x, gnorm(x))
+    ## 3) Binomial distribution - plot(x, bnorm(x))
+    ## 4) Negative binomial distribution - plot(x, pnorm(x))
+
+### Topic 4: Introduction to linear regression try with R
+    ## 1) Understand Titanic data and define the correlation
+    ## 2) Draw different residual plots and analyse the data
+    
+### Topic 5: R Shinny app
+    ## 1) If time permits than will create a dashboard using R Shinny app
+    ## 2) Analyze the data and visualization
+
+     ********************************************************************************************
+#### Topic 2: Chapter 2, Summarizing the data
+
+There are 891 observations and 12 variables. It is a tibble: 891 x 12 with 7 <dbl> - hold the numeric values with decimal points and 5 <chr>
+
+```{r}
+titanic <- read.table('titanic.csv',header = TRUE, sep = ",")
+summary(titanic)
+```
+
+```{r}
+dim(titanic)
+length(dim(titanic))
+names(titanic)
+```
+
+```{r}
+plot(hist(titanic$Age))
+```
+
+```{r}
+head(titanic)
+```
+
+```{r}
+tail(titanic)
+```
+
+```{r}
+summary.data.frame(titanic)
+```
+
+```{r}
+summary(titanic$Age)
+```
+
+```{r}
+table(titanic$Survived)
+```
+
+```{r}
+table(titanic$Sex)
+```
+
+
+```{r}
+table(titanic$Pclass)
+```
+
+```{r}
+table(titanic$Pclass) ->pclass 
+prop.table(pclass)*100
+round(pclass, digits=1) ->pclass
+pclass
+
+```
+
+```{r}
+gender_survived <- table(titanic$Sex, titanic$Survived)
+mosaicplot(gender_survived)
+```
+
+
+```{r}
+barplot(table(titanic$Survived))
+```
+
+
+```{r}
+barplot(table(titanic$Sex))
+```
+
+```{r}
+boxplot(titanic$Age ~ titanic$Pclass)
+```
+
+```{r}
+hist(titanic$Age, breaks = 50)
+```
+
+    
+# Conclusion
+
+
