@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-setwd("/Users/Home/Desktop/St Thomas/SEIS 631")
+#setwd("/Users/Home/Desktop/St Thomas/SEIS 631")
 ```
 
 ![Titanic Ship](/Users/Home/Desktop/St Thomas/SEIS 631/RMS_Titanic_3.jpg){width=90%}
